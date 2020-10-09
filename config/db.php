@@ -6,7 +6,7 @@ class Db{
     const HOST = "localhost";
     const USER = "root";
     const PASSWORD = "";
-    const DB = "";
+    const DB = "feedback";
 
     public static function connect(){
         $host = self::HOST;
@@ -14,7 +14,7 @@ class Db{
         $password = self::PASSWORD;
         $db = self::DB;
 
-        $conn = new PDO("mysql:host=$host;dbname=$db", $user, $password);
+        $conn = mysqli_connect(self::HOST,self::USER,self::PASSWORD,self::DB);
         return $conn;
     }
 

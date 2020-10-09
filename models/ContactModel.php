@@ -7,9 +7,22 @@ class ContactModel extends Model {
     private static $requiredFields = ['first_name','last_name','email','message'];
 
     function __construct($data){
-        parent::__construct();
         $this->data = $data;
         unset($data['submit']);
+    }
+
+    public function getConnectData(){
+        return $this->db;
+    }
+
+    public function insertIntoTable(){
+        $conn = $this->db;
+        $firstName =  $this->data['first_name'];
+        $lastName =  $this->data['last_name'];
+        $email =  $this->data['email'];
+        $message =  $this->data['message'];
+        $sql ="INSERT INTO posts(first_name, last_name, email,message) VALUES('$firstName','$lastName','$email','$message')";
+        mysqli_close($conn);
     }
 
     public function validateForm(){
