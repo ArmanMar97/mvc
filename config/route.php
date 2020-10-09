@@ -15,20 +15,20 @@ class Route{
             $modelName = ucfirst($route[1]. "Model");
         }
 
-        include CONTROLLER_PATH . $controllerName . ".php";
-        include MODEL_PATH . $modelName . ".php";
+        require_once CONTROLLER_PATH . $controllerName . ".php";
+        require_once MODEL_PATH . $modelName . ".php";
 
         if (isset($route[2]) && $route[2] != '' ){
             $action = $route[2];
         }
 
+
         $controller = new $controllerName;
         $controller->$action();
 
-    }
-
-    public function errorPage(){
+        return true;
 
     }
+
 
 }

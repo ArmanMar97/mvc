@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Piazzolla', serif;
+}
+.navbar{
+    background-color: beige !important;
+}
+.navbar a{
+    color: black !important;
+}
+.form-control:focus {
+    box-shadow: none !important;
+}
+textarea {
+    resize: none;
+}
