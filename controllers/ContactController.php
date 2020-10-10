@@ -18,17 +18,18 @@ class ContactController extends Controller {
                 $this->pageData = $errors;
                 $this->view->render("header","contact",$this->pageData);
                 exit();
-            }else{
+            }
+            else{
                 $this->model->connect();
                 $conn = $this->model->getConnectData();
-                if ($conn){
-                    $this->model->insertIntoTable();
-                    $this->pageData['dbMessage'] = "Your feedback is successfully sent!";
+                if (!$conn){
+                    $this->pageData['dbMessage'] = "Sorry connection error try later!";
                     $this->view->render("header","contact",$this->pageData);
                     exit();
                 }
                 else {
-                    $this->pageData['dbMessage'] = "Sorry connection error try later!";
+                    $this->model->insertIntoTable();
+                    $this->pageData['dbMessage'] = "Your feedback is successfully sent!";
                     $this->view->render("header","contact",$this->pageData);
                     exit();
                 }

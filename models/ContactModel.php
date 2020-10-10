@@ -12,31 +12,28 @@ class ContactModel extends Model {
     }
 
     public function getConnectData(){
-        return $this->db;
+        return $this->conn;
     }
 
     public function insertIntoTable(){
-        $conn = $this->db;
+        $connection = $this->conn;
         $firstName =  $this->data['first_name'];
         $lastName =  $this->data['last_name'];
         $email =  $this->data['email'];
         $message =  $this->data['message'];
         $sql ="INSERT INTO posts(first_name, last_name, email,message) VALUES('$firstName','$lastName','$email','$message')";
-        mysqli_close($conn);
+        mysqli_query($connection,$sql);
+        mysqli_close($connection);
     }
 
     public function validateForm(){
-        foreach (self::$requiredFields as $field){
-            if (!array_key_exists($field,$this->data)){
-                trigger_error("$field is required");
-                return;
-            }
-        }
+
         $this->validateFirstName();
         $this->validateLastName();
         $this->validateEmail();
         $this->validateMessage();
         return $this->errors;
+
     }
 
 
@@ -79,7 +76,7 @@ class ContactModel extends Model {
         if (empty($val)){
             $this->addError('message','Message cannot be empty');
         }else {
-            if (!preg_match('/^[a-zA-Z0-9]{6,12}$/',$val)){
+            if (!preg_match('/^[a-zа-я0-9]{6,12}$/',$val)){
                 $this->addError('message','Message is not valid!');
             }
         }

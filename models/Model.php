@@ -2,10 +2,10 @@
 
 
 class Model{
-    protected $db = null;
+    protected $conn = null;
 
     public function connect(){
-        $this->db = DB::connect();
+        $this->conn = DB::connect();
     }
 
 }
