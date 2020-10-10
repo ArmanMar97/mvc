@@ -16,3 +16,23 @@
 textarea {
     resize: none;
 }
+.box{
+    border: 1px solid black;
+    width: 100px;
+    min-height: 40px;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(8,12.50%);
+}
+.grid-2{
+    display: grid;
+    grid-template-columns: repeat(4,25%);
+}
+.grid-box{
+    background-color: bisque;
+    border: 1px solid black;
+}
+.details{
+    cursor: pointer;
+}

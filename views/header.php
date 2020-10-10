@@ -19,8 +19,23 @@
             <li class="nav-item">
                 <a class="nav-link" href="/contact">Contact</a>
             </li>
+            <?php
+            if (!isset($_SESSION["username"])):
+                echo "
+            <li class='nav-item'>
+                <a class='nav-link' href='/login' class='nav-link'>Login</a>
+            </li>
+            ";
+            else:
+                echo "
+             <li class='nav-item'>
+                <a class='nav-link' href='/logout' class='nav-link'>Logout</a>
+            </li>
+            ";
+            endif;
+            ?>
             <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
+                <a class="nav-link" href="/admin">Admin</a>
             </li>
         </ul>
     </div>

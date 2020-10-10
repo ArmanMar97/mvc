@@ -8,4 +8,9 @@ class Model{
         $this->conn = DB::connect();
     }
 
+    public function getConnectData()
+    {
+        return $this->conn;
+    }
+
 }

@@ -12,7 +12,7 @@ class ContactModel extends Model {
     }
 
     public function getConnectData(){
-        return $this->conn;
+        return parent::getConnectData();
     }
 
     public function insertIntoTable(){
@@ -37,7 +37,7 @@ class ContactModel extends Model {
     }
 
 
-    private function validateFirstName(){
+    protected function validateFirstName(){
         $val = trim($this->data['first_name']);
         if (empty($val)){
             $this->addError('first_name','First name cannot be empty');
@@ -48,7 +48,7 @@ class ContactModel extends Model {
         }
     }
 
-    private function validateLastName(){
+    protected function validateLastName(){
         $val = trim($this->data['last_name']);
         if (empty($val)){
             $this->addError('last_name','Last name cannot be empty');
@@ -60,7 +60,7 @@ class ContactModel extends Model {
     }
 
 
-    private function validateEmail(){
+    protected function validateEmail(){
         $val = trim($this->data['email']);
         if (empty($val)){
             $this->addError('email','Email cannot be empty');
@@ -71,18 +71,14 @@ class ContactModel extends Model {
         }
     }
 
-    private function validateMessage(){
+    protected function validateMessage(){
         $val = trim($this->data['message']);
         if (empty($val)){
             $this->addError('message','Message cannot be empty');
-        }else {
-            if (!preg_match('/^[a-zа-я0-9]{6,12}$/',$val)){
-                $this->addError('message','Message is not valid!');
-            }
         }
     }
 
-    private function addError($key,$value){
+    protected function addError($key,$value){
         $this->errors[$key] = $value;
     }
 

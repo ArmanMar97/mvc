@@ -1,7 +1,7 @@
 <?php
 
 
-class Db{
+class DB{
 
     const HOST = "localhost";
     const USER = "root";
