@@ -7,6 +7,7 @@ $sent_date = [];
 $email = [];
 $id = [];
 
+
 if (!empty($pageData)) {
     foreach ($pageData['dbData'] as $row){
         array_push($message,$row['message']);
@@ -84,7 +85,7 @@ if (!empty($pageData)) {
             <?php
             if (!empty($id)) {
                 foreach ($id as $item){
-                    echo "<a href='post.php?id=$item' class='d-block py-2 details'>Details</a>";
+                    echo "<a href='/admin/post?id=$item' class='d-block py-3 details'>Details</a>";
                 }
             }
             ?>
@@ -93,7 +94,7 @@ if (!empty($pageData)) {
             <?php
             if (!empty($id)) {
                 foreach ($id as $item){
-                    echo "<a href='deletePost.php?id=$item' class='d-block py-2 details'><i class='fas fa-trash-alt'></i></a>";
+                    echo "<a href='/admin/deletePost?id=$item' class='d-block py-3 details'><i class='fas fa-trash-alt'></i></a>";
                 }
             }
             ?>
