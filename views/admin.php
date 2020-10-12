@@ -8,7 +8,7 @@ $email = [];
 $id = [];
 
 
-if (!empty($pageData)) {
+if (!empty($pageData['dbData'])){
     foreach ($pageData['dbData'] as $row){
         array_push($message,$row['message']);
         array_push($first_name,$row['first_name']);

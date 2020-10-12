@@ -9,6 +9,7 @@ class AdminModel extends Model {
         return $this->conn;
     }
 
+
     public function selectFromData(){
         $connection = $this->conn;
         $sql ="SELECT * FROM posts";
@@ -44,6 +45,22 @@ class AdminModel extends Model {
         mysqli_close($connection);
 
         return $this->rows;
+    }
+
+    public function deletePostFromData(){
+        $id = $_GET['id'];
+
+        $connection = $this->conn;
+        $sql = "DELETE FROM posts where id='$id'";
+        mysqli_query($connection,$sql);
+        $result = mysqli_query($connection,$sql);
+
+        if ($result){
+            mysqli_close($connection);
+        }
+        else{
+            echo "Connection error!";
+        }
     }
 
 }

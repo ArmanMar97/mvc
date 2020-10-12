@@ -27,7 +27,7 @@ class AdminController extends Controller {
         }
 
     }
-    
+
     public function post(){
         if (!isset($_SESSION["username"])) {
             header("location:/");
@@ -43,6 +43,24 @@ class AdminController extends Controller {
             $this->pageData['dbData'] =$rows;
             $this->view->render("header","post",$this->pageData);
 
+        }
+    }
+
+    public function deletePost(){
+
+        if (!isset($_SESSION["username"])) {
+            header("location:/");
+            exit();
+        }
+
+        $this->model = new AdminModel();
+        $this->model->connect();
+        $conn = $this->model->getConnectData();
+
+        if ($conn){
+            $this->model->deletePostFromData();
+            header('Location:/admin');
+            exit();
         }
     }
 
