@@ -5,9 +5,9 @@ class AdminModel extends Model {
     private $rows = [];
     private $id;
 
-    public function getConnectData(){
-        return $this->conn;
-    }
+//    public function getConnectData(){
+//        return $this->conn;
+//    }
 
 
     public function selectFromData(){

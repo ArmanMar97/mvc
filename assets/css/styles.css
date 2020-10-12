@@ -36,3 +36,13 @@ textarea {
 .details{
     cursor: pointer;
 }
+.message{
+    max-height: 50px;
+    overflow-y: hidden;
+}
+a{
+    color: black;
+}
+.fas{
+    color: black;
+}

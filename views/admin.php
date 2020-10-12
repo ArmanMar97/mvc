@@ -58,7 +58,7 @@ if (!empty($pageData['dbData'])){
             <?php
             if (!empty($message)) {
                 foreach ($message as $item){
-                    echo "<p>$item</p>";
+                    echo "<p class='message mb-0'>$item</p>";
                 }
             }
             ?>

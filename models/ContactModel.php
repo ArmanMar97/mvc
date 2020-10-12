@@ -11,9 +11,6 @@ class ContactModel extends Model {
         unset($data['submit']);
     }
 
-    public function getConnectData(){
-        return parent::getConnectData();
-    }
 
     public function insertIntoTable(){
         $connection = $this->conn;

@@ -15,9 +15,6 @@ class LoginModel extends Model {
         return $this->errors;
     }
 
-    public function getConnectData(){
-        return parent::getConnectData();
-    }
 
     public function checkUser(){
         $connection = $this->conn;
