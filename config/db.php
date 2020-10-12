@@ -1,19 +1,20 @@
 <?php
 
 
-class DB
-{
+class DB{
 
     const  HOST = "localhost";
     const USER = "root";
     const PASSWORD = "";
-    const DB = "feedback";
+    const DB = "";
+
 
     public static function connect( $dbName = self::DB){
         $host = self::HOST;
         $user = self::USER;
         $password = self::PASSWORD;
         $db = self::DB;
+
 
         if (isset($dbName)){
             $db = $dbName;
@@ -38,14 +39,16 @@ class DB
 
     }
 
-    public static function createPostsTable( $tableName,$dbName=self::DB){
+    public static function createPostsTable($dbName=self::DB){
+
+
         if (isset($dbName)){
             $dbName = $dbName;
         }
 
         $conn = self::connect($dbName);
 
-        $sql = "CREATE TABLE IF NOT EXISTS `$tableName` (
+        $sql = "CREATE TABLE IF NOT EXISTS `posts` (
                   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
                     `first_name` varchar(255) DEFAULT NULL,
                     `last_name` varchar(255) DEFAULT NULL,

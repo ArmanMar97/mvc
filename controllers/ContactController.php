@@ -12,7 +12,7 @@ class ContactController extends Controller {
     public function submit(){
         if (isset($_POST['submit'])){
             $data = $_POST;
-            $this->model = new ContactModel($data);
+            $this->model = new ContactModel($data,);
             $errors = $this->model->validateForm();
             if (!empty($errors)){
                 $this->pageData = $errors;
