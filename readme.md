@@ -1,11 +1,11 @@
 # This is a simple MVC based feedback application
 
-##Prerequisites
+## Prerequisites
 - PHP v7.4
 - Apache Server
 - MySQL(MariaDB)
 
-##Installation
+## Installation
 
 1.Download xampp https://www.apachefriends.org/ru/index.html <br>
 Xampp will install latest PHP,Apache and MySQL(MariaDB).
@@ -30,7 +30,7 @@ It will change root directory to your folder.<br>
 
 4.You can now start localhost server(Port 80 by default) and mySQL server(Port 3306 by default) from xampp control panel <br>
 
-##Database Info
+## Database Info
 
 1.All methods related to database are in config/db.php file   <br>
 Once you created a database you can manually set const DB to your database name,so it will be <br>
@@ -44,7 +44,6 @@ your default db.
 ```
 createPostTable and createAdminTable methods will create post and admin tables respectively with all required columns <br>
 After creating admin table you should create admin user by createAdminUser method.
-Warning! Admin and Posts table shouldn't be named differently
 
 ---
 **WARNING!**
