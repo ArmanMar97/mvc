@@ -27,5 +27,23 @@ class AdminController extends Controller {
         }
 
     }
+    
+    public function post(){
+        if (!isset($_SESSION["username"])) {
+            header("location:/");
+            exit();
+        }
+        $this->model = new AdminModel();
+        $this->model->connect();
+        $conn = $this->model->getConnectData();
+
+        if ($conn){
+            $rows = $this->model->selectPostFromData();
+            $this->pageData['title'] = "Post";
+            $this->pageData['dbData'] =$rows;
+            $this->view->render("header","post",$this->pageData);
+
+        }
+    }
 
 }

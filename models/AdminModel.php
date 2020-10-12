@@ -28,6 +28,7 @@ class AdminModel extends Model {
     }
 
     public function selectPostFromData(){
+        $this->id = $_GET['id'];
         $connection = $this->conn;
         $sql ="SELECT * FROM posts where id= '$this->id' ";
         mysqli_query($connection,$sql);

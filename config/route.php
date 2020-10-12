@@ -3,28 +3,27 @@
 
 class Route{
 
-    public static function buildRoute(){
+    public static function buildRoute() {
+
         $controllerName = "IndexController";
         $modelName = "IndexModel";
         $action = "index";
 
-        $route = explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
+        $routes = explode('/',$_SERVER['REQUEST_URI']);
 
-        print_r($route);
-        echo count($route);
-        $i = count($route)-1;
+        if (strlen($routes[1])){
+            $controllerName = ucfirst($routes[1] . "Controller");
+            $modelName =  ucfirst($routes[1] . "Model");
+        }
 
-        while($i>0) {
-            if($route[$i] != '') {
-                if(is_file(CONTROLLER_PATH . ucfirst($route[$i]) . "Controller.php") || !empty($_GET)) {
-                    $controllerName = ucfirst($route[$i]) . "Controller";
-                    $modelName =  ucfirst($route[$i]) . "Model";
-                    break;
-                } else {
-                    $action = $route[$i];
-                }
+        if (isset($routes[2])){
+            $string = $routes[2];
+            if (strpos($string,'?')){
+                $action = substr($string,0,strpos($string,'?'));
             }
-            $i--;
+            else{
+                $action = $string;
+            }
         }
 
         require_once CONTROLLER_PATH . $controllerName . ".php";
@@ -32,9 +31,12 @@ class Route{
 
         $controller = new $controllerName();
         $controller->$action();
-
     }
 
 
+
+    public function errorPage(){
+
+    }
 
 }
