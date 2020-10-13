@@ -26,17 +26,24 @@ class Route{
             }
         }
 
-        require_once CONTROLLER_PATH . $controllerName . ".php";
-        require_once MODEL_PATH . $modelName . ".php";
 
-        $controller = new $controllerName();
-        $controller->$action();
+        if (is_file(CONTROLLER_PATH . ucfirst($controllerName) .".php")){
+            require_once CONTROLLER_PATH . $controllerName . ".php";
+            require_once MODEL_PATH . $modelName . ".php";
+            $controller = new $controllerName();
+            $controller->$action();
+        }
+        else{
+            self::errorPage();
+        }
+
+
     }
 
 
-
     public function errorPage(){
-
+        $errorPage = VIEW_PATH ."404.php";
+        require_once $errorPage;
     }
 
 }

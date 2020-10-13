@@ -47,5 +47,12 @@ class LoginController extends Controller{
         }
     }
 
+    public function logOut(){
+        session_unset();
+        session_destroy();
+        header('Location:/');
+        exit();;
+    }
+
 
 }

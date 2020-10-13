@@ -6,7 +6,7 @@ class DB{
     const  HOST = "localhost";
     const USER = "root";
     const PASSWORD = "";
-    const DB = "";
+    const DB = "feedback";
 
 
     public static function connect( $dbName = self::DB){
@@ -87,6 +87,8 @@ class DB{
     }
 
     public static function createAdminUser( $username, $password, $dbName=self::DB){
+//        $password = password_hash($password,PASSWORD_DEFAULT);
+
         if (isset($dbName)){
             $dbName=$dbName;
         }

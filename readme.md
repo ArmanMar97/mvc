@@ -33,8 +33,15 @@ It will change root directory to your folder.<br>
 ## Database Info
 
 1.All methods related to database are in config/db.php file   <br>
-Once you created a database you can manually set const DB to your database name,so it will be <br>
-your default db.
+Fist you need to change these HOST,USER,PASSWORD constants in oder to be able to connect to your database <br>
+Then you must create db by createDatabase method.<br>
+---
+**WARNING!**
+This method accepts optional parameter "dbName",if not set it will connect to your default database set in const DB.
+
+___
+Once you created a database you must manually set const DB to your database name,so it will be <br>
+your default db and prevent connections errors.
 
 ```php
     const HOST = "localhost";
@@ -43,9 +50,11 @@ your default db.
     const DB = "";
 ```
 createPostTable and createAdminTable methods will create post and admin tables respectively with all required columns <br>
+Again "dbName" parameter is optional,if not set dbName will be your default DB. <br>
 After creating admin table you should create admin user by createAdminUser method.
 
 ---
 **WARNING!**
 Admin and Posts table shouldn't be named differently.
+
 ___

@@ -58,7 +58,7 @@ if (!empty($pageData['dbData'])){
             <?php
             if (!empty($message)) {
                 foreach ($message as $item){
-                    echo "<p class='message mb-0'>$item</p>";
+                    echo "<p class='message '>$item</p>";
                 }
             }
             ?>
@@ -85,16 +85,16 @@ if (!empty($pageData['dbData'])){
             <?php
             if (!empty($id)) {
                 foreach ($id as $item){
-                    echo "<a href='/admin/post?id=$item' class='d-block py-3 details'>Details</a>";
+                    echo "<a href='/admin/post?id=$item' class='d-block pb-3 pt-0 details'>Details</a>";
                 }
             }
             ?>
         </div>
-        <div class="grid-box text-center"><strong>Delete</strong>
+        <div class="grid-box text-center delete-box"><strong>Delete</strong>
             <?php
             if (!empty($id)) {
                 foreach ($id as $item){
-                    echo "<a href='/admin/deletePost?id=$item' class='d-block py-3 details'><i class='fas fa-trash-alt'></i></a>";
+                    echo "<a href='/admin/deletePost?id=$item' class='d-block w-100 pb-4 pt-0 details'><i class='fas fa-trash-alt'></i></a>";
                 }
             }
             ?>

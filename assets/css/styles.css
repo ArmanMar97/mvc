@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family: 'Piazzolla', serif;
 }
+body{
+    overflow-x: hidden;
+}
 .navbar{
     background-color: beige !important;
 }
@@ -45,4 +48,11 @@ a{
 }
 .fas{
     color: black;
+}
+.fa-trash-alt{
+    transition: linear 200ms;
+}
+.fa-trash-alt:hover{
+    transform: scale(1.4);
+    transition: linear 200ms;
 }

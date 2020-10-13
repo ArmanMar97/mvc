@@ -29,7 +29,7 @@
             else:
                 echo "
              <li class='nav-item'>
-                <a class='nav-link' href='/logout' class='nav-link'>Logout</a>
+                <a class='nav-link' href='/login/logOut' class='nav-link'>Logout</a>
             </li>
             ";
             endif;
